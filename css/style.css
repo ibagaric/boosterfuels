@@ -1,0 +1,127 @@
+body {
+  background-color: #291a34;
+  font-family: 'Open Sans', sans-serif; }
+
+.navbar {
+  margin: 0;
+  border-radius: 0; }
+  .navbar img {
+    height: 20px;
+    margin: 15px 0; }
+
+.navbar-inverse {
+  background-color: #291a34;
+  border: 0; }
+
+.container-fluid {
+  border-radius: 0;
+  margin-bottom: 0; }
+  .container-fluid h1 {
+    font-size: 25px;
+    font-weight: 200;
+    color: #dbcde6;
+    font-family: 'Slabo 27px', serif;
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    text-align: center; }
+  .container-fluid.steps {
+    color: #fff; }
+
+.margin-top-30 {
+  margin-top: 30px; }
+
+.btn-booster {
+  background-color: #dbcde6;
+  border-color: #ab89c4;
+  color: #291a34; }
+  .btn-booster.back {
+    background-color: #291a34;
+    border-color: #1c1223;
+    color: #fff; }
+
+.page-header {
+  margin: 0;
+  padding: 30px;
+  border: none; }
+
+/* numbered buttons */
+#status-buttons a {
+  color: #c3abd5;
+  font-weight: 200;
+  font-family: 'Slabo 27px', serif;
+  display: inline-block;
+  font-size: 18px;
+  float: left;
+  width: 33%;
+  text-align: center;
+  text-transform: capitalize; }
+  #status-buttons a:last-of-type {
+    width: 34%; }
+  #status-buttons a:hover {
+    text-decoration: none; }
+  #status-buttons a.active span {
+    background: #c3abd5; }
+#status-buttons span {
+  background: white;
+  display: block;
+  height: 4px;
+  margin: 0 auto 10px; }
+
+#signup-form {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  min-height: 400px; }
+
+#form-views.ng-enter,
+#form-views.ng-leave {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease; }
+
+/* enter animation */
+#form-views.ng-enter {
+  -webkit-animation: slideInRight 0.5s both ease;
+  -moz-animation: slideInRight 0.5s both ease;
+  animation: slideInRight 0.5s both ease; }
+
+/* leave animation */
+#form-views.ng-leave {
+  -webkit-animation: slideOutLeft 0.5s both ease;
+  -moz-animation: slideOutLeft 0.5s both ease;
+  animation: slideOutLeft 0.5s both ease; }
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-200%); } }
+@-moz-keyframes slideOutLeft {
+  to {
+    -moz-transform: translateX(-200%); } }
+@-webkit-keyframes slideOutLeft {
+  to {
+    -webkit-transform: translateX(-200%); } }
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%); }
+  to {
+    transform: translateX(0); } }
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(200%); }
+  to {
+    -moz-transform: translateX(0); } }
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(200%); }
+  to {
+    -webkit-transform: translateX(0); } }
+#signup-form input.ng-invalid.ng-touched {
+  background-color: deeppink; }
+
+#signup-form input.ng-valid.ng-touched {
+  background-color: aquamarine; }
+
+/*# sourceMappingURL=style.css.map */

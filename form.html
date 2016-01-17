@@ -1,0 +1,25 @@
+<div class="row">
+    <!-- the links to all nested states using relative paths -->
+    <!-- add the active class if the state matches ui-sref -->
+     <div id="status-buttons" class="text-center">
+        <a ui-sref-active="active" ui-sref=".contact"><span></span> Your Data {{  formData.name }}</a>
+        <a ui-sref-active="active" ui-sref=".car"><span></span> Your Car</a>
+        <a ui-sref-active="active" ui-sref=".payment"><span></span> Payments</a>
+    </div>
+</div>  
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+         
+        <div class="page-header text-center">
+            <h1>Boost Your Car With Fuel</h1>
+        </div>   
+
+        <!-- ng-submit to catch the form submission and Angular function -->
+        <form id="signup-form" name="signup-form" ng-submit="processForm()">
+            <!--  nested state views is injected here -->
+            <div id="form-views" ui-view></div>
+        </form>        
+
+    </div>
+</div>

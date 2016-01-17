@@ -1,0 +1,20 @@
+{
+    "cars": [
+        {
+            "manufacturer": "VW",
+            "model": "Passat"
+        },{
+            "manufacturer": "Nissan",
+            "model": "GT-R"
+        },{
+            "manufacturer": "VW",
+            "model": "Golf"
+        },{
+            "manufacturer": "Honda",
+            "model": "Civic"
+        },{
+            "manufacturer": "Honda",
+            "model": "Accord"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+<div name="carForm" novalidate ng-form="carForm" ng-init="bindCar()">
+    <div class="form-group">
+        <label for="carmanufacturer">Car Manufacturer</label><br>
+        <select name="carmanufacturer" id="carmanufacturer" ng-model="formData.carmanufacturer"
+                ng-options="manufactur.manufacturer for manufactur in cardddata" required class="form-control" ng-change="change()">
+            <option value="">---Please select---</option> <!-- not selected / blank option -->
+           
+
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="carmodel">Car Model</label><br>
+        <select name="carmodel" id="carmodel" ng-model="formData.carmodel" required class="form-control" ng-options="models.model for models in carmodels">
+            <option value="">---Please select---</option> <!-- not selected / blank option -->
+            <!--<option value="{{models.model}}">{{models.model}}</option>-->
+
+        </select>
+    </div>
+
+
+    <div class="form-group row margin-top-30">
+        <div class="col-xs-12 col-sm-6">
+            <a ui-sref="form.contact" class="btn btn-block btn-booster back btn-info">
+                Back
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <button ui-sref="form.payment" class="btn btn-block btn-booster btn-info" ng-disabled="carForm.$invalid">
+                Next
+            </button>
+        </div>
+    </div>
+</div>

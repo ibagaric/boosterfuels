@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- load up angular and custom script -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin' rel='stylesheet' type='text/css'>    
+
+</head>
+
+<!-- start of ng-app -->
+<body ng-app="formApp" ng-controller="boosterFormController">
+   
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="pull-left"><img src="images/booster_logo.png" class="img-responsive"></a>
+          </div>
+          <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav">
+              <li><a href="#cars">Users</a></li>
+              <li class="dropdown">
+                <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    Account<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Your Profile</a></li>
+                  <li><a href="#">Your Car</a></li>
+                  <li><a href="#">payments</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- views will be injected here -->
+    <div class="container-fluid steps">
+        <div ui-view></div>
+    </div>
+
+</body>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</html>

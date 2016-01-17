@@ -1,0 +1,30 @@
+<div name="contactForm" novalidate ng-form="contactForm">
+   
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" ng-model="formData.name" required>
+        <!-- option for required ng-class="{'has-error': contactForm.name.$touched && contactForm.name.$invalid}" -->
+    </div>
+
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" name="lastname" ng-model="formData.lastname" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" ng-model="formData.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+    </div>
+
+
+    <div class="form-group row margin-top-30">
+        <div class="col-xs-12 col-sm-6">
+        </div>
+        <div class="col-sm-6">
+            <button ui-sref="form.car" class="btn btn-block btn-booster btn-info" ng-disabled="contactForm.$invalid">
+                Next
+            </button>
+        </div>
+    </div>
+    
+</div>
