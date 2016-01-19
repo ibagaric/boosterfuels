@@ -16,7 +16,7 @@
         </div>   
 
         <!-- ng-submit to catch the form submission and Angular function -->
-        <form id="signup-form" name="signup-form" ng-submit="processForm()">
+        <form id="signup-form" name="signup-form" ng-submit="processForm()" novalidate>
             <!--  nested state views is injected here -->
             <div id="form-views" ui-view></div>
         </form>        

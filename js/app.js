@@ -59,13 +59,55 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
             return uniqueList;
         };
     })
+    .directive('watchChange', function () {
+        return {
+            scope: {
+                onchange: '&watchChange'
+            },
+            link: function (scope, element, attrs) {
+                element.on('input', function () {
+                    scope.onchange();
+                });
+            }
+        };
+    })
 // our controller for the form
 // =============================================================================
 .controller('boosterFormController', function ($scope, $http, $filter, $state) {
 
+
     // we will store all of our form data in this object
+    $scope.formData = {
+        //carmanufacturer: { manufacturer: "" },
+        //carmodel: { model: "" }
+    };
+    $scope.singleManufac = {};
+    $scope.singlModel = {};
+    //Customer Data Scope
     $scope.customerData = [];
-    $scope.formData = {};
+    //Update LocalStorage from UI data
+    $scope.updateLocal = function () {
+
+        localStorage.setItem("Name", $scope.formData.name);
+        localStorage.setItem("LastName", $scope.formData.lastname);
+        localStorage.setItem("Email", $scope.formData.email);
+        localStorage.setItem("CardNumber", $scope.formData.creditcardname);
+        localStorage.setItem("CCV", $scope.formData.ccv);
+        localStorage.setItem("CarManufacturer", $scope.formData.carmanufacturer.manufacturer);
+        debugger;
+        localStorage.setItem("CarModel", $scope.formData.carmodel.model);
+    };
+
+    //Bind Model According to Manufacture
+    $scope.change = function () {
+        debugger;
+        $scope.selectedItem = $scope.formData.carmanufacturer.manufacturer;
+
+        $scope.carmodels = $filter('filter')($scope.modelData.cars, { manufacturer: $scope.selectedItem });
+       // $scope.updateLocal();
+
+
+    };
     //Bind Car data from Json
     $scope.bindCar = function () {
         $scope.cardddata = [
@@ -73,50 +115,59 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
             { manufacturer: "Nissan", model: "GT-R" },
             { manufacturer: "Honda", model: "Civic" },
         ];
+
         $scope.modelData = $scope.cardddata
         $http.get('data/cars.json').success(function (array) {
-           
-            $scope.carData = array;
 
+            $scope.carData = array;
             $scope.modelData = array;
         });
 
     };
-    //On Change of Manu.
-    $scope.change = function () {
+    //get Data into LocalStorage
+    $scope.setUpData = function () {
+        // localStorage.setItem("Name", "KP Singh");
 
-        $scope.selectedItem = $scope.formData.carmanufacturer.manufacturer;
-    
-        $scope.carmodels = $filter('filter')($scope.modelData.cars, { manufacturer: $scope.formData.carmanufacturer.manufacturer });
+        if (localStorage.getItem("Name") != 'undefined' && localStorage.getItem("Name") != null) {
+            $scope.formData.name = localStorage.getItem("Name");
+        }
+        if (localStorage.getItem("LastName") != 'undefined' && localStorage.getItem("LastName") != null) {
+            $scope.formData.lastname = localStorage.getItem("LastName");
+        }
+        if (localStorage.getItem("Email") != 'undefined' && localStorage.getItem("Email") != null) {
+            $scope.formData.email = localStorage.getItem("Email");
+        }
+        if (localStorage.getItem("CarManufacturer") != 'undefined' && localStorage.getItem("CarManufacturer") != null) {
+            $scope.singleManufac = localStorage.getItem("CarManufacturer");
+            debugger;
+           // $scope.bindCar();
+            //$scope.change();
 
-    };
+        }
+        if (localStorage.getItem("CarModel") != 'undefined' && localStorage.getItem("CarModel") != null) {
+            $scope.singlModel = localStorage.getItem("CarModel");
+        }
+    }
+    //Call Init function
+    $scope.setUpData();
+   
+   
+
     // function to process the form
     $scope.processForm = function () {
-        // alert("awesome")
+        //Remove current scope value form localstorae
+        localStorage.removeItem('Name');
+        localStorage.removeItem('LastName');
+        localStorage.removeItem('Email');
+        localStorage.removeItem('CardNumber');
+        localStorage.removeItem('CCV');
+        localStorage.removeItem('CarManufacturer');
+        localStorage.removeItem('CarModel');
+        //Save Current value into localStorage
+        //localStorage.setItem("CustmerData","");
 
         $state.go("form.thankyou");
-        // $post('data/customerData.json', $scope.contact);
-        //$http({
-        //    method: 'POST',
-        //    url: 'data/customerData.json',
-        //    headers: {
-        //        'type': 'application/json;charset=utf-8;', /*or whatever type is relevant */
-        //        'Accept': 'application/json' /* ditto */
-        //    },
-        //    data: {"CustomerData":$scope.contact}
-        //});
-        //$http.post('data/customerData.json', { contact: contact }).success(function (data) {
-        //    debugger;
-        //    console.log(data)
-        //    alert($scope.msg);
 
-        //});
-
-        //$http.post('data/customerData.json', JSON.stringify($scope.formData)).success(function (data) {
-        //    debugger;
-        //    $scope.msg = 'Data saved';
-        //});
-        //alert($scope.msg);
     };
 
 });

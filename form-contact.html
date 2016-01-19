@@ -2,18 +2,17 @@
    
     <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" ng-model="formData.name" required>
-        <!-- option for required ng-class="{'has-error': contactForm.name.$touched && contactForm.name.$invalid}" -->
+        <input type="text" class="form-control" name="name" ng-model="formData.name" required watch-change ="updateLocal()">
     </div>
 
     <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" name="lastname" ng-model="formData.lastname" required>
+        <input type="text" class="form-control" name="lastname" ng-model="formData.lastname" required watch-change ="updateLocal()">
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" ng-model="formData.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+        <input type="text" class="form-control" name="email" ng-model="formData.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required watch-change="updateLocal()">
     </div>
 
 
