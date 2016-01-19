@@ -2,22 +2,22 @@
 ---
 
 
-### Instalation
-____
+### Installation
 
 Just download and run locale in some of your browser
 
-
-### What script I use
 ____
 
-- Angular ngAnimate module [a link](https://docs.angularjs.org/api/ngAnimate)
-- AngularUI Router [a link](https://github.com/angular-ui/ui-router)
-- Angular Local Storage [a link](https://github.com/grevory/angular-local-storage)
+### What script I use
+
+- [Angular ngAnimate module](https://docs.angularjs.org/api/ngAnimate)
+- [AngularUI Router](https://github.com/angular-ui/ui-router)
+- [Angular Local Storage](https://github.com/grevory/angular-local-storage)
 
 
+---
 ### Task
-___
+
 
 Using AngularJS, create a web registration form with **three consecutive steps**. 
 
